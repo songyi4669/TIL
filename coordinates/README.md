@@ -18,15 +18,13 @@ document.addEventListener('mousemove', event => {
     const y = event.clientY;
     console.log(`${x} ${y}`);
 
-    vertical.style.left = `${x}px`;
-    horizontal.style.top = `${y}px`;
-    target.style.left = `${x}px`;
-    target.style.top = `${y}px`;
-    tag.style.left = `${x}px`;
-    tag.style.top = `${y}px`;
+    vertical.style.transform = `translateX(${x}px)`;
+    horizontal.style.transform = `translateY(${y}px)`;
+    target.style.transform = `translate(${x-targetHalfWidth}px, ${y-targetHalfHeight}px)`;
+    tag.style.transform = `translate(${x}px, ${y}px)`;
     tag.innerHTML = `${x}px, ${y}px`;
     });
  ```
 1. addEventListener의 mousemove를 사용
 2. x, y에 clientX, clientY를 할당함
-3. 각 변수에 style안에 있는 속성에 x, y변수를 할당하여 마우스를 따라다니게 적용
+3. 각 변수에 style 속성에 x, y변수를 할당하여 마우스를 따라다니게 적용
